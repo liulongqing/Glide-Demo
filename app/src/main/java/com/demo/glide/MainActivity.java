@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+
 public class MainActivity extends AppCompatActivity {
 
     private String imgUrl = "http://pics.sc.chinaz.com/files/pic/pic9/201809/zzpic14004.jpg";
@@ -18,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
                 .load(imgUrl)
                 .placeholder(R.drawable.ic_launcher_background)//图片加载出来前，显示的图片
                 .error(R.drawable.ic_launcher_background)//图片加载失败后，显示的图片
-                .fitCenter()
+                .transition(DrawableTransitionOptions.withCrossFade())//交叉淡入
+                .circleCrop()
                 .into(imageView);
     }
 }
